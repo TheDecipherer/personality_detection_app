@@ -4,62 +4,65 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyHomePage(title: 'Count App'),
-    );
-  }
+  _MyAppState createState() => _MyAppState();
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class _MyAppState extends State<MyApp> {
+  var _questionIndex = 0;
 
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
+  void _answerQuestion() {
     setState(() {
-      _counter++;
+      _questionIndex++;
     });
+    print(_questionIndex);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+    var questions = [
+      'What is your favorite animal?',
+      'What is your favorite color?'
+    ];
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('My first app'),
+        ),
+        body: Column(
           children: <Widget>[
             Text(
-              'You have pushed the button this many times:',
+              questions[_questionIndex],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            Row(
+              children: <Widget>[
+                RaisedButton(
+                  child: Text('Answer 1'),
+                  onPressed: _answerQuestion,
+                ),
+                RaisedButton(
+                  child: Text('Answer 2'),
+                  onPressed: () => print('Answer 2 chosen'),
+                ),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                RaisedButton(
+                  child: Text('Answer 3'),
+                  onPressed: () {
+                    print('Answer 3 chosen');
+                  },
+                ),
+                RaisedButton(
+                  child: Text('Answer 4'),
+                  onPressed: _answerQuestion,
+                ),
+              ],
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
       ),
     );
   }
