@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Question('My first app'),
+          title: Text('My first app'),
         ),
         body: Column(
           children: <Widget>[
@@ -40,11 +40,11 @@ class _MyAppState extends State<MyApp> {
             Row(
               children: <Widget>[
                 RaisedButton(
-                  child: Question('Answer 1'),
+                  child: Text('Answer 1'),
                   onPressed: _answerQuestion,
                 ),
                 RaisedButton(
-                  child: Question('Answer 2'),
+                  child: Text('Answer 2'),
                   onPressed: () => print('Answer 2 chosen'),
                 ),
               ],
@@ -52,13 +52,13 @@ class _MyAppState extends State<MyApp> {
             Row(
               children: <Widget>[
                 RaisedButton(
-                  child: Question('Answer 3'),
+                  child: Text('Answer 3'),
                   onPressed: () {
                     print('Answer 3 chosen');
                   },
                 ),
                 RaisedButton(
-                  child: Question('Answer 4'),
+                  child: Text('Answer 4'),
                   onPressed: _answerQuestion,
                 ),
               ],
