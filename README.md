@@ -1,4 +1,4 @@
-# first_app
+# personality_detection_app
 
 Personality detection app. Just for fun.
 
