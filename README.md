@@ -1,6 +1,6 @@
 # first_app
 
-A new Flutter project.
+Personality detection app. Just for fun.
 
 ## Getting Started
 
